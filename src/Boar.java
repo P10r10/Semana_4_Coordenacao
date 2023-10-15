@@ -1,6 +1,6 @@
 public class Boar {
-    private int cookID;
-    private int boarID;
+    private final int cookID;
+    private final int boarID;
 
     public Boar(int cookID, int boarID) {
         this.cookID = cookID;
@@ -9,6 +9,6 @@ public class Boar {
 
     @Override
     public String toString() {
-        return "Boar #" + boarID + " made by cook " + cookID;
+        return "Boar #" + boarID + " made by cook #" + cookID;
     }
 }

@@ -20,6 +20,6 @@ public class Eater extends Thread {
                 System.out.println(getName() + " was interrupted");
             }
         }
-        System.out.println(getName() + " ate " + i + "boars.");
+        System.out.println("\t" + getName() + " finished eating " + i + " boars");
     }
 }

@@ -20,6 +20,6 @@ public class Cook extends Thread {
                 System.out.println(getName() + " was interrupted");
             }
         }
-        System.out.println(getName() + " has cooked " + i + "boars.");
+        System.out.println("\t" + getName() + " has finished cooking " + i + " boars");
     }
 }
