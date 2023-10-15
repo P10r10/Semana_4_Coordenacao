@@ -1,7 +1,7 @@
 public class Cook extends Thread {
-    private int cookID;
-    private int maxBoars;
-    private Table table;
+    private final int cookID;
+    private final int maxBoars;
+    private final Table table;
 
     public Cook(int cookID, int maxBoars, Table table) {
         super("Cook #" + cookID);
@@ -22,5 +22,4 @@ public class Cook extends Thread {
         }
         System.out.println(getName() + " has cooked " + i + "boars.");
     }
-
 }
