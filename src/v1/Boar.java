@@ -1,3 +1,5 @@
+package v1;
+
 public class Boar {
     private final int cookID;
     private final int boarID;

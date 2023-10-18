@@ -1,9 +1,13 @@
-public class Eater extends Thread {
+package v1;
+
+public class Cook extends Thread {
+    private final int cookID;
     private final int maxBoars;
     private final Table table;
 
-    public Eater(int eaterID, int maxBoars, Table table) {
-        super("Eater #" + eaterID);
+    public Cook(int cookID, int maxBoars, Table table) {
+        super("Cook #" + cookID);
+        this.cookID = cookID;
         this.maxBoars = maxBoars;
         this.table = table;
     }
@@ -13,13 +17,11 @@ public class Eater extends Thread {
         int i = 0;
         for (; i < maxBoars; i++) {
             try {
-                Boar boar = table.eat();
-                System.out.println(getName() + " ate " + boar);
-
+                table.serve(new Boar(cookID, i));
             } catch (InterruptedException e) {
                 System.out.println(getName() + " was interrupted");
             }
         }
-        System.out.println("\t" + getName() + " finished eating " + i + " boars");
+        System.out.println("\t" + getName() + " has finished cooking " + i + " boars");
     }
 }
