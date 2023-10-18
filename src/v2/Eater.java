@@ -1,24 +1,22 @@
 package v2;
 
 public class Eater extends Thread {
-    private final int maxBoars;
     private final Table table;
 
-    public Eater(int eaterID, int maxBoars, Table table) {
+    public Eater(int eaterID, Table table) {
         super("Eater #" + eaterID);
-        this.maxBoars = maxBoars;
         this.table = table;
     }
 
     @Override
     public void run() {
         int i = 0;
-        for (; i < maxBoars; i++) {
+        while (!interrupted()) {
             try {
-                Boar boar = table.eat();
-                System.out.println(getName() + " ate " + boar);
-
+                table.eat();
+                i++;
             } catch (InterruptedException e) {
+                interrupt();
                 System.out.println(getName() + " was interrupted");
             }
         }
