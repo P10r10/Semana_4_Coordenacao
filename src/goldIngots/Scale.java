@@ -11,12 +11,12 @@ public class Scale {
         notifyAll();
     }
 
-    public synchronized double remove() throws InterruptedException {
+    public synchronized void remove() throws InterruptedException {
         while (currentGold < 12.5) {
             wait();
         }
         currentGold -= 12.5;
+        wait(3000);
         notifyAll();
-        return 0; // ??
     }
 }
