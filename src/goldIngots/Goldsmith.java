@@ -6,23 +6,24 @@ public class Goldsmith extends Thread {
     private int ingot = 0;
 
     public Goldsmith(Scale scale) {
+        super("Goldsmith");
         this.scale = scale;
     }
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().toString() + " begins");
+        System.out.println(Thread.currentThread().getName() + " begins.");
         while (!interrupted()) {
             try {
                 scale.remove();
-//                wait(3000);
                 ingot++;
+                System.out.println("Ingot ready!");
             } catch (InterruptedException e) {
-                interrupt();
-                System.out.println(getName() + " was interrupted");
+                System.out.println(getName() + " was interrupted.");
+                break;
             }
         }
-        System.out.println(Thread.currentThread().toString() + " ends");
-        System.out.println("Goldsmith produced " + ingot + " ingots");
+        System.out.println(Thread.currentThread().getName() + " ends.");
+        System.out.println("Goldsmith produced " + ingot + " ingots.");
     }
 }
